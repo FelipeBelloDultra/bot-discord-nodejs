@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const config = require('./config/bot');
+const config = require('./config/botConfig');
 
 class Bot {
   constructor() {
