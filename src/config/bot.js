@@ -3,6 +3,6 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 module.exports = {
-  prefix: '!-',
+  prefix: process.env.PREFIX,
   token: process.env.TOKEN,
 };
