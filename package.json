@@ -1,10 +1,10 @@
 {
   "name": "bot-discord-nodejs",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./src/index.js",
   "author": "FelipeBelloDultra <felipe_bello_dultra@hotmail.com>",
   "scripts": {
-    "dev": "yarn nodemon ./src/bot.js"
+    "dev": "yarn nodemon ./src/index.js"
   },
   "license": "MIT",
   "devDependencies": {
