@@ -8,9 +8,11 @@ class Bot {
   }
 
   receiveMessage() {
-    this.client.on('message', msg => {
+    this.client.on('message', async msg => {
+      if (msg.author.bot) return;
+
       if (msg.content === 'ping') {
-        msg.reply('ping');
+        await msg.channel.send(msg.content);
       }
     });
   }
