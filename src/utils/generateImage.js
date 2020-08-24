@@ -2,7 +2,7 @@ const jimp = require('jimp');
 const path = require('path');
 
 async function generateImage(message) {
-  const max = 3;
+  const max = 5;
   const min = 1;
   const writePath = path.resolve(
     __dirname,
@@ -14,7 +14,8 @@ async function generateImage(message) {
   );
   const photo = Math.floor(Math.random() * (max - min + 1) + min);
 
-  const font = await jimp.loadFont(jimp.FONT_SANS_32_BLACK);
+  const fontBlack = await jimp.loadFont(jimp.FONT_SANS_32_BLACK);
+  const fontWhite = await jimp.loadFont(jimp.FONT_SANS_32_WHITE);
   const image = await jimp.read(
     path.resolve(__dirname, '..', '..', 'tmp', `${photo}.png`),
   );
@@ -22,11 +23,17 @@ async function generateImage(message) {
   const resizeImage = image.resize(500, 500);
 
   if (photo === 1) {
-    resizeImage.print(font, 10, 450, message).write(writePath);
+    resizeImage.print(fontBlack, 10, 450, message).write(writePath);
 
     return writePath;
   }
-  resizeImage.print(font, 10, 10, message).write(writePath);
+
+  if (photo === 4) {
+    resizeImage.print(fontWhite, 10, 10, message).write(writePath);
+
+    return writePath;
+  }
+  resizeImage.print(fontBlack, 10, 10, message).write(writePath);
 
   return writePath;
 }
