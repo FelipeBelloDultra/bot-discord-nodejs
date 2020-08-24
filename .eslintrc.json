@@ -19,6 +19,7 @@
     "ecmaVersion": 2018
   },
   "rules": {
+    "prefer-const": "off",
     "arrow-parens": "off",
     "prettier/prettier": "error"
   }
