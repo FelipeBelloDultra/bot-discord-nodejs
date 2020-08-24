@@ -1,5 +1,3 @@
-const Bot = require('./bot');
+const initBot = require('./bot');
 
-const bot = new Bot();
-
-bot.render();
+initBot();
