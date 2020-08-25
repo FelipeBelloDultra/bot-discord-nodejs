@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
-const config = require('./config/botConfig');
+const config = require('../../../config/botConfig');
 
-const generateImage = require('./services/generateImage');
-const valdadePrefix = require('./services/validadePrefix');
+const generateImage = require('../../../modules/bot/services/generateImage');
+const valdadePrefix = require('../../../modules/bot/services/validadePrefix');
 
 function initBot() {
   const client = new Discord.Client();

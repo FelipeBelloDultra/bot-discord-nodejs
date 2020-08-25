@@ -1,12 +1,20 @@
 const jimp = require('jimp');
 const path = require('path');
 
-const randomPhoto = require('../utils/randomPhoto');
+const randomPhoto = require('../../../utils/randomPhoto');
 
 async function generateImage(message) {
   const max = randomPhoto.length;
   const min = 0;
-  const writePath = path.resolve(__dirname, '..', '..', 'tmp', 'image.png');
+  const writePath = path.resolve(
+    __dirname,
+    '..',
+    '..',
+    '..',
+    '..',
+    'tmp',
+    'image.png',
+  );
   const photo = Math.floor(Math.random() * (max - min) + min);
 
   const fontBlack = await jimp.loadFont(jimp.FONT_SANS_32_BLACK);

@@ -48,5 +48,7 @@ yarn dev
 npm run dev
 
 # To execute:
-node .
+yarn start
+# Or
+npm start
 ```
