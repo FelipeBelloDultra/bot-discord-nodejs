@@ -1,32 +1,38 @@
 const Discord = require('discord.js');
 const config = require('../../../config/botConfig');
 
-const generateImage = require('../../../modules/bot/services/generateImage');
-const valdadePrefix = require('../../../modules/bot/services/validadePrefix');
+const GenerateImageWithTextService = require('../../../modules/bot/services/GenerateImageWithTextService');
+const GeneratePrefixAndMessageService = require('../../../modules/bot/services/GeneratePrefixAndMessageService');
 
-function initBot() {
-  const client = new Discord.Client();
-  client.login(config.token);
+const client = new Discord.Client();
 
-  client.on('message', async msg => {
-    if (msg.author.bot) return;
+const generateImageWithText = new GenerateImageWithTextService();
+const generatePrefixAndMessage = new GeneratePrefixAndMessageService();
 
-    const { prefix, content } = valdadePrefix(msg.content);
+client.login(process.env.TOKEN);
 
-    if (prefix === config.prefix) {
-      if (!content) {
-        msg.channel.send(
-          `Essa foi boa, ${msg.author.username}, mas vai ficar sem meme!`,
-        );
+class Bot {
+  async init() {
+    client.on('message', async msg => {
+      if (msg.author.bot) return;
 
-        return;
+      const { prefix, content } = generatePrefixAndMessage.execute(msg.content);
+
+      if (prefix === config.prefix) {
+        if (!content) {
+          msg.channel.send(
+            `Essa foi boa, ${msg.author.username}, mas vai ficar sem meme!`,
+          );
+
+          return;
+        }
+
+        const url = await generateImageWithText.execute(content);
+
+        msg.channel.send('', { files: [url] });
       }
-
-      const url = await generateImage(content);
-
-      msg.channel.send('', { files: [url] });
-    }
-  });
+    });
+  }
 }
 
-module.exports = initBot;
+module.exports = Bot;

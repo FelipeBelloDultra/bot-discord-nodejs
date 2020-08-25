@@ -1,3 +1,5 @@
-const initBot = require('./bot');
+const Bot = require('./bot');
 
-initBot();
+const bot = new Bot();
+
+bot.init();
