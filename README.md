@@ -38,9 +38,11 @@ npm install
 npm i
 ```
 3. Add image URLs to .env
-4. Add the variables of the .env images to array in ./src/utils/randomPhoto.js
-5. Add the bot to your Discord server
-6. Running application
+4. Create a randomPhoto.js in src > utils
+5. Add the variables of the .env images to array
+6. Add the bot to your Discord server
+7. Running application
+>>>>>>> fix/scalable_structure
 ```bash
 # To run in development use:
 yarn dev
