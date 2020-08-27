@@ -19,6 +19,7 @@
     "ecmaVersion": 2018
   },
   "rules": {
+    "operator-linebreak": "off",
     "class-methods-use-this": "off",
     "prefer-const": "off",
     "arrow-parens": "off",
