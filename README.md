@@ -18,7 +18,6 @@ The bot returns an random image containing the text "This is funny!"
 * Use [NodeJS](https://nodejs.org/en/) to run the project
 * Use [Discord](https://discord.com/developers/applications) to create your BOT
 
-
 ## ⚙️ Technologies used
 1. [NodeJS](https://nodejs.org/en/)
 2. [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
@@ -38,11 +37,10 @@ npm install
 npm i
 ```
 3. Add image URLs to .env
-4. Create a randomPhoto.js in src > utils
+4. Create a randomPhoto.js in src> utils and add process.env files like this in the example file
 5. Add the variables of the .env images to array
 6. Add the bot to your Discord server
 7. Running application
->>>>>>> fix/scalable_structure
 ```bash
 # To run in development use:
 yarn dev
