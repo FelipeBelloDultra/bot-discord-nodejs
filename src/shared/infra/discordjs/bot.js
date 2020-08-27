@@ -27,6 +27,12 @@ class Bot {
           return;
         }
 
+        if (content === 'help') {
+          msg.reply(`Só colocar a frase depois do ${config.prefix}`);
+
+          return;
+        }
+
         const url = await generateImageWithText.execute(content);
 
         msg.channel.send('', { files: [url] });
