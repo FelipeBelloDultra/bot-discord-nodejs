@@ -120,5 +120,3 @@ tmp/*
 
 uploads/*
 !uploads/.gitkeep
-
-src/utils/randomPhoto.js
