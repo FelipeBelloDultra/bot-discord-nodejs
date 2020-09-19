@@ -26,14 +26,14 @@ class GenerateImageWithTextService {
 
     // Text down
     if (photo === 0 || photo === 7) {
-      resizeImage.print(fontBlack, 10, 450, message).write(writePath);
+      resizeImage.print(fontBlack, 10, 450, message, 400).write(writePath);
 
       return writePath;
     }
 
     // Text up and white
     if (photo === 3 || photo === 6 || photo === 9 || photo === 15) {
-      resizeImage.print(fontWhite, 10, 10, message).write(writePath);
+      resizeImage.print(fontWhite, 10, 10, message, 400).write(writePath);
 
       return writePath;
     }
@@ -46,12 +46,12 @@ class GenerateImageWithTextService {
       photo === 16 ||
       photo === 18
     ) {
-      resizeImage.print(fontWhite, 10, 450, message).write(writePath);
+      resizeImage.print(fontWhite, 10, 450, message, 400).write(writePath);
 
       return writePath;
     }
 
-    resizeImage.print(fontBlack, 10, 10, message).write(writePath);
+    resizeImage.print(fontBlack, 10, 10, message, 400).write(writePath);
 
     return writePath;
   }
