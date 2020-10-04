@@ -1,15 +1,14 @@
 const jimp = require('jimp');
 const path = require('path');
 
-const randomPhoto = require('../../../utils/randomPhoto');
+const randomPhoto = require('../../utils/randomPhoto');
 
-class GenerateImageWithTextService {
+class GenerateBackgroundBlackService {
   async execute(message) {
     const max = randomPhoto.length;
 
     const background = path.resolve(
       __dirname,
-      '..',
       '..',
       '..',
       'utils',
@@ -19,7 +18,6 @@ class GenerateImageWithTextService {
 
     const writePath = path.resolve(
       __dirname,
-      '..',
       '..',
       '..',
       '..',
@@ -34,8 +32,9 @@ class GenerateImageWithTextService {
     const image = await jimp.read(randomPhoto[photo]);
     const backgroundImage = await jimp.read(background);
 
-    image.resize(600, 600);
-    backgroundImage.resize(600, 700);
+    image.resize(500, 500);
+
+    backgroundImage.resize(500, 600);
 
     backgroundImage.print(fontWhite, 10, 10, message, 550);
 
@@ -45,4 +44,4 @@ class GenerateImageWithTextService {
   }
 }
 
-module.exports = GenerateImageWithTextService;
+module.exports = GenerateBackgroundBlackService;

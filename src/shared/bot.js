@@ -1,13 +1,13 @@
 const Discord = require('discord.js');
-const config = require('../../../config/botConfig');
+const config = require('../config/botConfig');
 
-const GenerateImageWithTextService = require('../../../modules/bot/services/GenerateImageWithTextService');
-const GeneratePrefixAndMessageService = require('../../../modules/bot/services/GeneratePrefixAndMessageService');
+const GeneratePrefixAndMessageService = require('../app/services/GeneratePrefixAndMessageService');
+const GenerateImageWithTextService = require('../app/services/GenerateImageWithTextService');
 
 const client = new Discord.Client();
 
-const generateImageWithText = new GenerateImageWithTextService();
 const generatePrefixAndMessage = new GeneratePrefixAndMessageService();
+const generateImageWithText = new GenerateImageWithTextService();
 
 client.login(process.env.TOKEN);
 
@@ -17,6 +17,14 @@ class Bot {
       if (msg.author.bot) return;
 
       const { prefix, content } = generatePrefixAndMessage.execute(msg.content);
+
+      if (prefix === 'invalid' && content === 'invalid') {
+        msg.reply(
+          `para usar o bot tem que ter espaço depois do ${config.prefix}`,
+        );
+
+        return;
+      }
 
       if (prefix === config.prefix) {
         if (!content) {

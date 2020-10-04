@@ -1,11 +1,11 @@
 {
   "name": "bot-discord-nodejs",
   "version": "1.0.0",
-  "main": "./src/shared/infra/discordjs/index.js",
+  "main": "./src/shared/index.js",
   "author": "FelipeBelloDultra <felipe_bello_dultra@hotmail.com>",
   "scripts": {
-    "start": "node ./src/shared/infra/discordjs/index.js",
-    "dev": "yarn nodemon ./src/shared/infra/discordjs/index.js"
+    "start": "node ./src/shared/index.js",
+    "dev": "yarn nodemon ./src/shared/index.js"
   },
   "license": "MIT",
   "devDependencies": {
